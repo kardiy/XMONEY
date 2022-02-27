@@ -67,14 +67,14 @@ def getNewsList(date): #получение списка сегодняшних �
 def getYe(m): #получение даты, которая была m-ное количество дней назад
     date_format = '%d.%m.%Y'
     date = datetime.datetime.now()
-    date = date + datetime.timedelta(days=m)
+    date = date + datetime.timedelta(days=0-m)
     date = str(date.date()).replace('-','')
     return date
 
 def generatePrognoz(company): #генерация прогноза
     gazppoint=0
     for m in range(7):
-        date=getYe(0-m)
+        date=getYe(m)
         new=getNewsList(date)
         for u in range(1,len(new)):
             news=new[u]
